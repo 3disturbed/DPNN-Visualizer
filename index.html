@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DPNN Neural HUD</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/table-styles.css">
+</head>
+<body>
+    <div class="hud-container">
+        <div class="hud-header">
+            <div class="hud-title">DPNN NEURAL INTERFACE v1.0</div>
+            <div class="hud-status">
+                <div class="status-item">
+                    <div class="status-label">SCORE</div>
+                    <div class="status-value" id="score">0</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-label">TIME</div>
+                    <div class="status-value" id="timer">10</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hud-main">
+            <div class="left-panel">
+                <div class="game-container">
+                    <canvas id="gameCanvas" width="400" height="400"></canvas>
+                </div>
+                <div class="network-stats">
+                    <h3>NEURAL METRICS</h3>
+                    <div class="stats-grid">
+                        <div class="stats-item">
+                            <div class="stats-label">ERROR RATE</div>
+                            <div class="stats-value" id="lastError">0.000</div>
+                        </div>
+                        <div class="stats-item">
+                            <div class="stats-label">TRAINING CYCLES</div>
+                            <div class="stats-value" id="trainingIterations">0</div>
+                        </div>
+                        <div class="stats-item">
+                            <div class="stats-label">REWARD AVERAGE</div>
+                            <div class="stats-value" id="avgReward">0.0000</div>
+                        </div>
+                        <div class="stats-item">
+                            <div class="stats-label">FUNCTION DISTRIBUTION</div>
+                            <div class="stats-value" id="functionDistribution">Default</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+            <div class="right-panel">
+                <div class="control-panel">
+                    <div class="panel-section">
+                        <h3>LEARNING PARAMETERS</h3>
+                        <div class="parameter-grid">
+                            <div class="parameter-row">
+                                <div class="parameter-label">Base Learning Rate</div>
+                                <input type="range" id="baseLearningRate" class="parameter-slider" min="0.001" max="0.2" step="0.001" value="0.05">
+                                <div class="parameter-value" id="baseLearningRateValue">0.050</div>
+                            </div>
+                            <div class="parameter-row">
+                                <div class="parameter-label">Confidence Modifier</div>
+                                <input type="range" id="confidenceModifier" class="parameter-slider" min="0.5" max="8.0" step="0.1" value="3.0">
+                                <div class="parameter-value" id="confidenceModifierValue">3.0</div>
+                            </div>
+                            <div class="parameter-row">
+                                <div class="parameter-label">Mutation Threshold</div>
+                                <input type="range" id="mutationThreshold" class="parameter-slider" min="0.05" max="0.5" step="0.01" value="0.15">
+                                <div class="parameter-value" id="mutationThresholdValue">0.15</div>
+                            </div>
+                            <div class="parameter-row">
+                                <div class="parameter-label">Mutation Rate</div>
+                                <input type="range" id="mutationRate" class="parameter-slider" min="0.05" max="0.95" step="0.05" value="0.25">
+                                <div class="parameter-value" id="mutationRateValue">0.25</div>
+                            </div>
+                            <div class="parameter-row">
+                                <div class="parameter-label">Reward Scaling</div>
+                                <input type="range" id="rewardScaling" class="parameter-slider" min="0.5" max="5.0" step="0.1" value="2.0">
+                                <div class="parameter-value" id="rewardScalingValue">2.0</div>
+                            </div>
+                        </div>
+                        <button id="applyParamsBtn" class="hud-button">APPLY PARAMETERS</button>
+                    </div>
+
+                    <div class="panel-section">
+                        <h3>SYSTEM CONTROLS</h3>
+                        <div class="control-grid">
+                            <button id="resetBtn" class="hud-button">RESET NETWORK</button>
+                            <button id="fastModeBtn" class="hud-button">TOGGLE FAST MODE</button>
+                            <button id="saveBtn" class="hud-button">SAVE MODEL</button>
+                            <select id="modelSelect" class="hud-select">
+                                <option value="">Select Model</option>
+                            </select>
+                            <button id="loadBtn" class="hud-button">LOAD MODEL</button>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> 
+            <div class="center-panel">
+                <canvas id="networkCanvas" width="1920" height="1080"></canvas>
+            </div>
+    </div>
+   
+    <script src="js/Network.js"></script>
+    <script src="js/Game.js"></script>
+    <script src="js/Visualization.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

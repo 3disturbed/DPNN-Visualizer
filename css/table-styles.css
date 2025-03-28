@@ -1,0 +1,58 @@
+#weightsTableBody {
+    font-family: 'Consolas', monospace;
+    font-size: 12px;
+    color: var(--primary-color);
+    width: 100%;
+}
+
+.layer-header {
+    background: rgba(0, 255, 157, 0.1);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 8px;
+    font-weight: bold;
+    border: 1px solid var(--primary-color);
+}
+
+.column-header-row td {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 5px;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    font-size: 11px;
+}
+
+.weight-row {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.weight-row td, .bias-row td {
+    padding: 3px 5px;
+    border: 1px solid rgba(0, 255, 157, 0.1);
+}
+
+.indent {
+    padding-left: 20px !important;
+    font-style: italic;
+}
+
+.bias-row {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.active-node {
+    background: rgba(0, 255, 157, 0.1);
+}
+
+.status-active {
+    color: #00ff9d;
+}
+
+.status-inactive {
+    color: #666;
+}
+
+.spacer {
+    height: 10px;
+    background: transparent;
+    border: none;
+}
